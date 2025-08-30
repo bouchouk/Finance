@@ -1,0 +1,31 @@
+# ---------- configs/env_config.yaml ----------
+data:
+  path: "data/Final_model_data_SPY(2).csv"
+  features:
+    - 'return'
+    - 'volume'
+    - 'ema_dist'
+    - 'strike_high_dist'
+    - 'strike_low_dist'
+    - 'opt_strike_high_dist'
+    - 'opt_strike_low_dist'
+    - 'volatility'
+  
+model:
+  window_size: 10
+  lstm_units: 64
+  cnn_filters: [32, 64]
+  dense_units: 128
+  dueling: True
+
+training:
+  episodes: 2000
+  batch_size: 32
+  memory_size: 100000
+  gamma: 0.99
+  epsilon_start: 1.0
+  epsilon_end: 0.01
+  epsilon_decay: 0.998
+  target_update: 100
+  max_episode_steps: 500
+  test_size: 0.25  # 20% for testing
